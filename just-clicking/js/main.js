@@ -23,6 +23,7 @@ $(document).ready(function() {
   var $score = $('#score');
 
 
+  // give each square a 'data-id' from 0 to 8
   $squares.each(function(index, element) {
     var $element = $(element);
     $element.attr('data-id', index);
@@ -33,12 +34,14 @@ $(document).ready(function() {
     var indexes = _.times(_dataSquares.length, function(index) {
       return index;
     });
+    // shuffle indexes
     indexes = _.shuffle(indexes);
-
+    // loops through the shuffled indexes
     for (var i = 0; i < indexes.length; i++) {
       var index = indexes[i];
       var $square = $squares.eq(index);
       var dataSquare = _dataSquares[index];
+      // picks a random square to light up
       if (dataSquare === 0) {
         $square.addClass('active');
         _dataSquares[index] = 1;

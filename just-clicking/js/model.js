@@ -51,6 +51,21 @@ JC.model = (function( _ ) {
   };
 
 
+  var levelUpEvery100 = function() {
+    var increase = false;
+    var multiple = _score / 100;
+    var new_rows = 4 + Math.floor(multiple);
+    if (new_rows > 4) {
+      increase = true;
+      console.log("Level up!")
+      rows = 4 + Math.floor(multiple);
+      columns = 4 + Math.floor(multiple);
+      _dataSquares = [];
+    }
+    return increase;
+  };
+
+
   return {
     getScore: getScore,
     getSquares: getSquares,

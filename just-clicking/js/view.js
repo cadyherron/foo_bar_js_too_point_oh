@@ -50,6 +50,7 @@ JC.view = (function( $ ) {
       if ($square.hasClass('active')) {
         $square.removeClass('active');
         var index = parseInt($square.attr('data-id'));
+        // TODO: don't call controller
         JC.controller.increaseScore(index);
         JC.view.updateScore(JC.controller.score())
       };
@@ -65,6 +66,7 @@ JC.view = (function( $ ) {
     updateIds: updateIds,
     clickListener: clickListener
   }
+  
 
 })( $ );
 

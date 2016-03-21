@@ -10,7 +10,7 @@ JC.controller = (function(model, view) {
   var init = function() {
     view.init();
     JC.controller.gameLoop();
-  }
+  };
 
 
 
@@ -19,18 +19,18 @@ JC.controller = (function(model, view) {
       model.activateRandomSquare();
       view.updateScore(JC.controller.score());
     }, 1000)
-  }
+  };
 
 
   var increaseScore = function(index) {
-    model.processSquareClick(index)
-  }
+    model.processSquareClick(index);
+  };
 
 
   var lightUp = function(index) {
-    view.lightUp(index)
+    view.lightUp(index);
     // view.updateSquares(index);
-  }
+  };
 
 
 
@@ -57,7 +57,7 @@ JC.controller = (function(model, view) {
 
   var score = function() {
     return JC.model.getScore();
-  }
+  };
 
 
 
@@ -66,7 +66,8 @@ JC.controller = (function(model, view) {
     init: init,
     score: score,
     lightUp: lightUp,
-    gameLoop: gameLoop
+    gameLoop: gameLoop,
+    increaseScore: increaseScore
   }
 
 })(JC.model, JC.view); // dependency injection

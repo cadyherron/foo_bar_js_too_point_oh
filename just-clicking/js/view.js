@@ -14,7 +14,7 @@ JC.view = (function( $ ) {
   var init = function() { // TODO: pass in onClick callback
     JC.view.updateIds();
     JC.view.clickListener();
-  }
+  };
 
 
   var updateIds = function() {
@@ -22,23 +22,23 @@ JC.view = (function( $ ) {
       var $element = $(element);
       $element.attr('data-id', index);
     });    
-  }
+  };
 
 
   var updateSquares = function(index) {
     
-  }
+  };
 
 
 
   var updateScore = function(points) {
-    $score.text(points)
-  }
+    $score.text(points);
+  };
 
 
   var lightUp = function(index) {
-    $squares.find('data-id', index)
-  }
+    $('[data-id="'+index+'"]').addClass('active');
+  };
 
 
 
@@ -48,15 +48,13 @@ JC.view = (function( $ ) {
     $game.click('.square', function(e) {
       var $square = $(e.target);
 
-      console.log($square.attr('data-id'))
-
       if ($square.hasClass('active')) {
         $square.removeClass('active');
-        var index = parseInt($square.attr('data-id'))
-        JC.controller.increaseScore(index)
-      }
+        var index = parseInt($square.attr('data-id'));
+        JC.controller.increaseScore(index);
+      };
     })
-  }
+  };
 
 
 

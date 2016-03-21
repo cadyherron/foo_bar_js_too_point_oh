@@ -25,19 +25,18 @@ JC.view = (function( $ ) {
   };
 
 
-  var updateSquares = function(index) {
-    
-  };
-
-
-
   var updateScore = function(points) {
     $score.text(points);
   };
 
 
-  var lightUp = function(index) {
-    $('[data-id="'+index+'"]').addClass('active');
+  var updateSquares = function(squares) {
+    for (var i = 0; i < squares.length; i++) {
+      if (squares[i] === 1) {
+        $('[data-id="'+ i +'"]').addClass('active');        
+      }
+    }
+
   };
 
 
@@ -52,29 +51,10 @@ JC.view = (function( $ ) {
         $square.removeClass('active');
         var index = parseInt($square.attr('data-id'));
         JC.controller.increaseScore(index);
+        JC.view.updateScore(JC.controller.score())
       };
     })
   };
-
-
-
-
-
-
-
-  // $game.click('.square', function(e) {
-  //   var $square = $(e.target);
-  //   if ($square.hasClass('active')) {
-  //     $square.removeClass('active');
-
-  //     var index = parseInt($square.attr('data-id'));
-  //     _dataSquares[index] = 0;
-  //     var score = $score.text();
-  //     score = parseInt(score);
-  //     $score.text(score + 10);
-  //   }
-  // });
-
 
 
 
@@ -83,7 +63,6 @@ JC.view = (function( $ ) {
     updateSquares: updateSquares,
     updateScore: updateScore,
     updateIds: updateIds,
-    lightUp: lightUp,
     clickListener: clickListener
   }
 

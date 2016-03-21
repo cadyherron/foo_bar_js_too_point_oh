@@ -11,7 +11,7 @@ JC.model = (function( _ ) {
     0, 0, 0,
     0, 0, 0,
     0, 0, 0
-  ]; // 0 is inactive, 1 is active?
+  ]; // 0 is inactive, 1 is active
 
 
   var getScore = function() {
@@ -28,15 +28,12 @@ JC.model = (function( _ ) {
     });
     // shuffle indexes
     indexes = _.shuffle(indexes);
-    // loops through the shuffled indexes
+    // picks a random square to light up
     for (var i = 0; i < indexes.length; i++) {
       var index = indexes[i];
       var dataSquare = _dataSquares[index];
-      // picks a random square to light up
+
       if (dataSquare === 0) {
-        // TODO: don't call controller
-        JC.controller.lightUp(index)
-        // $square.addClass('active');
         _dataSquares[index] = 1;
         break;
       };

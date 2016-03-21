@@ -17,7 +17,7 @@ JC.controller = (function(model, view) {
   var gameLoop = function() {
     setInterval(function() {
       model.activateRandomSquare();
-      view.updateScore(JC.controller.score());
+      JC.controller.lightUp(JC.model.getSquares());
     }, 1000)
   };
 
@@ -27,32 +27,9 @@ JC.controller = (function(model, view) {
   };
 
 
-  var lightUp = function(index) {
-    view.lightUp(index);
-    // view.updateSquares(index);
+  var lightUp = function(squares) {
+    view.updateSquares(squares);
   };
-
-
-
-  // setInterval(function() {
-  //   var indexes = _.times(_dataSquares.length, function(index) {
-  //     return index;
-  //   });
-  //   indexes = _.shuffle(indexes);
-
-  //   for (var i = 0; i < indexes.length; i++) {
-  //     var index = indexes[i];
-  //     var $square = $squares.eq(index);
-  //     var dataSquare = _dataSquares[index];
-  //     if (dataSquare === 0) {
-  //       $square.addClass('active');
-  //       _dataSquares[index] = 1;
-  //       break;
-  //     }
-  //   }
-  // }, 1000);
-
-
 
 
   var score = function() {
